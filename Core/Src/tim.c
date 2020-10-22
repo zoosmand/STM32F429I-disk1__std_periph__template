@@ -28,7 +28,7 @@ uint32_t _TIMREG_ = 0;
 /**
   * @brief  Initialises Basic Timer7
   * @param  None
-  * @retval None
+  * @return None
   */
 void BasicTimer7_Init(void) {
   /* TIM7 interrupt Init */
@@ -52,7 +52,7 @@ void BasicTimer7_Init(void) {
 /**
   * @brief  Basic Timer Handler called from interrupt via flag's handler
   * @param  tim: pointer to a basic timer instance
-  * @retval None
+  * @return None
   */
 void Timer_Handler(TIM_TypeDef* tim) {
   if (tim == TIM7) {

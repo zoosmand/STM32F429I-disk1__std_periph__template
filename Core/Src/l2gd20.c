@@ -23,7 +23,7 @@
 /**
   * @brief  Initializes L3GD20 MEMS device
   * @param  None
-  * @retval None
+  * @return None
   */
 void L3GD20_Init(void) {
   /* ----------------------------------------------------------------------------- */
@@ -116,7 +116,7 @@ void L3GD20_Init(void) {
   * @brief  Receive data from the MEMS.
   * @param  buf: a link of a data buffer
   * @param  cnt: length of the buffer 
-  * @retval None
+  * @return None
   */
 void L3GD20_Read(uint8_t *buf, uint8_t cnt) {
   /* Set Read bit in address */
@@ -138,7 +138,7 @@ void L3GD20_Read(uint8_t *buf, uint8_t cnt) {
   * @brief  Send data to the MEMS.
   * @param  buf: a link of a data buffer
   * @param  cnt: length of thr buffer 
-  * @retval None
+  * @return None
   */
 void L3GD20_Write(uint8_t *buf, uint8_t cnt) {
   /* Set continuous writing if necessary */

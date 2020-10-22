@@ -26,7 +26,7 @@ uint32_t _SPIREG_ = 0;
 /**
   * @brief  Initializes SPI5 peripheral 
   * @param  None
-  * @retval None
+  * @return None
   */
 void SPI5_Init(void) {
   /* Mode */
@@ -71,7 +71,7 @@ void SPI5_Init(void) {
   * @brief  Writes 8 bit data via SPI
   * @param  SPIx: pointer to an SPI instance
   * @param  data: a byte to send
-  * @retval None
+  * @return None
   */
 void SPI_Write8b(SPI_TypeDef *SPIx, uint8_t data) {
   __IO uint8_t *spidr = (__IO uint8_t *)&SPIx->DR;
@@ -85,7 +85,7 @@ void SPI_Write8b(SPI_TypeDef *SPIx, uint8_t data) {
 /**
   * @brief  Reads 8 bit data via SPI
   * @param  SPIx: pointer to an SPI instance
-  * @retval  a received byte
+  * @return  a received byte
   */
 uint8_t SPI_Read8b(SPI_TypeDef *SPIx) {
   uint8_t data_ret = (__IO uint8_t)(SPIx->DR);
@@ -100,7 +100,7 @@ uint8_t SPI_Read8b(SPI_TypeDef *SPIx) {
   * @brief  Transfers 8 bit data via SPI (read and write in one iteraction)
   * @param  SPIx: pointer to an SPI instance
   * @param  data: a byte to send
-  * @retval a received byte
+  * @return a received byte
   */
 uint8_t SPI_Transfer8b(SPI_TypeDef *SPIx, uint8_t data) {
   __IO uint8_t *spidr = (__IO uint8_t *)&SPIx->DR;
@@ -122,7 +122,7 @@ uint8_t SPI_Transfer8b(SPI_TypeDef *SPIx, uint8_t data) {
   * @param  SPIx: pointer to an SPI instance
   * @param  buf: pointer to a buffer to store data
   * @param  cnt: counter of bytes to get
-  * @retval  a received byte
+  * @return  a received byte
   */
 void SPI_Transfer8bBuf(SPI_TypeDef *SPIx, uint8_t *buf, uint16_t cnt) {
   while (cnt--) {

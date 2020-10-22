@@ -23,7 +23,7 @@
 /**
   * @brief  Sends an initialization command to the display.
   * @param  cmd: a command
-  * @retval None
+  * @return None
   */
  void ILI9341_InitCmd(uint8_t cmd) {
   LCD_WRX_L;
@@ -39,7 +39,7 @@
 /**
   * @brief  Senda initialization data to display.
   * @param  data: data
-  * @retval None
+  * @return None
   */
 void ILI9341_InitData(uint8_t data) {
   LCD_WRX_H;
@@ -55,7 +55,7 @@ void ILI9341_InitData(uint8_t data) {
 /**
   * @brief  Sends a sequence of initialization command and data to display.
   * @param  None
-  * @retval None
+  * @return None
   */
 void ILI9341_Init(void) {
   ILI9341_InitCmd(ILI9341_SOFTRESET); // 0x01

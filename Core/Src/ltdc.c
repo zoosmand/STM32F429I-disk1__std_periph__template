@@ -31,7 +31,7 @@ static void LTDC_ConfigLayer2(void);
 /**
   * @brief  Initializes LTDC peripheral 
   * @param  None
-  * @retval None
+  * @return None
   */
 void LTDC_Init(void) {
   /**LTDC GPIO Configuration    
@@ -382,7 +382,7 @@ void LTDC_Init(void) {
 /**
   * @brief  Setup an LTDC Layer 1.
   * @param  None
-  * @retval None
+  * @return None
   */
 static void LTDC_ConfigLayer1(void) {
   LTDC_Layer_TypeDef* layer = (LTDC_Layer_TypeDef*)LTDC_Layer1_BASE;
@@ -458,7 +458,7 @@ static void LTDC_ConfigLayer1(void) {
 /**
   * @brief  Setup an LTDC Layer 2.
   * @param  None
-  * @retval None
+  * @return None
   */
 static void LTDC_ConfigLayer2(void) {
   LTDC_Layer_TypeDef* layer = (LTDC_Layer_TypeDef*)LTDC_Layer2_BASE;

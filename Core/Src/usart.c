@@ -36,7 +36,7 @@ static uint8_t usartBufPrtOut = 0;
 /**
   * @brief  Initializes USART1 peripheral 
   * @param  None
-  * @retval None
+  * @return None
   */
 void USART1_Init(void) {
   /* 

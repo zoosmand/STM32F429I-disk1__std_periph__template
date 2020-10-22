@@ -29,7 +29,7 @@
 /**
   * @brief  Initializes the STMPE811 chip
   * @param  None
-  * @retval  None
+  * @return  None
   */
 void PE811_Init(void) {
   /* Enable clock */
@@ -77,7 +77,7 @@ void PE811_Init(void) {
   * @param  reg: A register to be read.
   * @param  buf: A pointer of a buffer where the data to be write.
   * @param  buf: The length of a buffer.
-  * @retval  a received byte
+  * @return  a received byte
   */
 uint8_t PE811_Read(uint8_t reg, uint8_t *buf, uint16_t len) {
   return (I2C_Read(I2C3, PE_I2C_Addr, reg, buf, len));
@@ -91,7 +91,7 @@ uint8_t PE811_Read(uint8_t reg, uint8_t *buf, uint16_t len) {
   * @brief  Writes a command
   * @param  reg: A register to be written
   * @param  cmd: A command to write into the register
-  * @retval None
+  * @return None
   */
 uint8_t PE811_Write(uint8_t reg, uint8_t cmd) {
   uint8_t tmp[2] = {reg, cmd};
