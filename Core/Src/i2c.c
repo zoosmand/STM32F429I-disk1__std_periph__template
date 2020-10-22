@@ -48,7 +48,7 @@ void I2C3_Init(void) {
   /* Output type */
   MODIFY_REG(I2C_3_SDA_Port->OTYPER, I2C_3_SDA_Pin, (_OTYPE_OD << I2C_3_SDA_Pin_Pos));
   /* Push mode */
-  MODIFY_REG(I2C_3_SDA_Port->PUPDR, I2C_3_SDA_Pin, (_PUPD_PU << I2C_3_SDA_Pin_Pos * 2));
+  MODIFY_REG(I2C_3_SDA_Port->PUPDR, I2C_3_SDA_Pin_Mask, (_PUPD_PU << I2C_3_SDA_Pin_Pos * 2));
   /* Alternate function */
   MODIFY_REG(I2C_3_SDA_Port->AFR[1], 0x000000f0, (GPIO_AF_4 << (I2C_3_SDA_Pin_Pos - 8) * 4));
 
@@ -60,7 +60,7 @@ void I2C3_Init(void) {
   /* Output type */
   MODIFY_REG(I2C_3_SCL_Port->OTYPER, I2C_3_SCL_Pin, (_OTYPE_OD << I2C_3_SCL_Pin_Pos));
   /* Push mode */
-  MODIFY_REG(I2C_3_SCL_Port->PUPDR, I2C_3_SCL_Pin, (_PUPD_PU << I2C_3_SCL_Pin_Pos * 2));
+  MODIFY_REG(I2C_3_SCL_Port->PUPDR, I2C_3_SCL_Pin_Mask, (_PUPD_PU << I2C_3_SCL_Pin_Pos * 2));
   /* Alternate function */
   MODIFY_REG(I2C_3_SCL_Port->AFR[1], 0x0000000f, (GPIO_AF_4 << (I2C_3_SCL_Pin_Pos - 8) * 4));
 
