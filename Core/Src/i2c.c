@@ -36,7 +36,7 @@ static uint8_t I2C_SendAddress(I2C_TypeDef *I2Cx, uint16_t slaveAddress, I2C_Add
 /**
   * @brief  Initializes I2C3 peripheral
   * @param  None
-  * @retval None
+  * @return None
   */
 void I2C3_Init(void) {
   /* SDA */
@@ -113,7 +113,7 @@ void I2C3_Init(void) {
   * @brief  Writes 8 bit data via I2C
   * @param  I2Cx: pointer to an I2C instance
   * @param  data: a byte to send
-  * @retval None
+  * @return None
   */
 uint8_t I2C_Write(I2C_TypeDef *I2Cx, uint8_t slaveAddress, uint8_t *buf, uint16_t len) {
   uint8_t status = 0;
@@ -134,7 +134,7 @@ uint8_t I2C_Write(I2C_TypeDef *I2Cx, uint8_t slaveAddress, uint8_t *buf, uint16_
 /**
   * @brief  Reads 8 bit data via I2C
   * @param  I2Cx: pointer to an I2C instance
-  * @retval  a received byte
+  * @return  a received byte
   */
 uint8_t I2C_Read(I2C_TypeDef *I2Cx, uint8_t slaveAddress, uint8_t reg, uint8_t *buf, uint16_t len) {
   uint8_t status = 0;
@@ -158,7 +158,7 @@ uint8_t I2C_Read(I2C_TypeDef *I2Cx, uint8_t slaveAddress, uint8_t reg, uint8_t *
   * @brief  Transfers 8 bit data via I2C (read and write in one iteraction)
   * @param  I2Cx: pointer to an I2C instance
   * @param  data: a byte to send
-  * @retval a received byte
+  * @return a received byte
   */
 uint8_t I2C_Transfer8b(I2C_TypeDef *I2Cx, uint8_t addr, uint8_t data) {
 
@@ -175,7 +175,7 @@ uint8_t I2C_Transfer8b(I2C_TypeDef *I2Cx, uint8_t addr, uint8_t data) {
   *         in datasheet must be shifted to the left before calling the interface
   * @param  buf Pointer to data buffer
   * @param  len Amount of data to be sent
-  * @retval transmit status
+  * @return transmit status
   */
 uint8_t I2C_Master_Transmit(I2C_TypeDef *I2Cx, uint16_t slaveAddress, uint8_t *buf, uint16_t len) {
   uint8_t status = 0;
@@ -221,7 +221,7 @@ uint8_t I2C_Master_Transmit(I2C_TypeDef *I2Cx, uint16_t slaveAddress, uint8_t *b
   *         in datasheet must be shifted to the left before calling the interface
   * @param  buf Pointer to data buffer
   * @param  len Amount of data to be sent
-  * @retval receive status
+  * @return receive status
   */
 uint8_t I2C_Master_Receive(I2C_TypeDef *I2Cx, uint16_t slaveAddress, uint8_t *buf, uint16_t len) {
   uint8_t status = 0;
