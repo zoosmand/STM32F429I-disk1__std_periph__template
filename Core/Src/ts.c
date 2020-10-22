@@ -27,7 +27,7 @@ uint32_t _TSREG_ = 0;
 /**
   * @brief  Reads data from an STMPE811 chip and displays it
   * @param  None
-  * @retval  None
+  * @return  None
   */
 void TS_Handler(void) {
   uint8_t tmp[8];
