@@ -64,16 +64,15 @@ void RTC_Init(void) {
 
   /* Configure Date and Time */
   struct tm timeStruct = {
-    .tm_year = 2020, 
-    .tm_mon = 9,
-    .tm_mday = 22,
-    .tm_wday = 5,
-    .tm_hour = 22,
-    .tm_min = 12,
-    .tm_sec = 59
+    .tm_year = 2021, 
+    .tm_mon = 7,
+    .tm_mday = 11,
+    .tm_wday = 7,
+    .tm_hour = 9,
+    .tm_min = 41,
+    .tm_sec = 59,
   };
   RTC_SetDateTime(timeStruct);
-
 
   /* Configure alarms */
   RTC_SetAlarm('A', 0);

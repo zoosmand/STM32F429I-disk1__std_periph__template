@@ -195,7 +195,6 @@ void Flags_Handler(void){
     printf("test\n");
     FLAG_CLR(_GLOBALREG_, _DDTF_);
   }
-
 }
 
 
