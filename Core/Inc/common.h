@@ -153,11 +153,11 @@
 /* Private macro -------------------------------------------------------------*/
 #define GET_PERIPH_BB_ADDR(addr, periphOffset, wordOffset)      (PERIPH_BB_BASE + ((addr + periphOffset) * 32U) + (wordOffset * 4U))
 #define SET_PERIPH_BB_VAL(addr, periphOffset, wordOffset, key)  (*(uint32_t*)(GET_PERIPH_BB_ADDR(addr, periphOffset, wordOffset)) = key)
-#define GET_PERIPH_BB_VAL(addr, periphOffset, wordOffset)       (*(uint32_t*)(GET_PERIPH_BB_ADDR(addr, periphOffset, wordOffset)))
+#define GET_PERIPH_BB_VAL(addr, periphOffset, wordOffset)       (*(__O uint32_t*)(GET_PERIPH_BB_ADDR(addr, periphOffset, wordOffset)))
 
 #define GET_SRAM_BB_ADDR(addr, offset)                          (SRAM_BB_BASE + (addr * 32U) + (offset * 4U))
 #define SET_SRAM_BB_VAL(addr, offset, key)                      (*(uint32_t*)(GET_SRAM_BB_ADDR(addr, offset)) = key)
-#define GET_SRAM_BB_VAL(addr, offset)                           (*(uint32_t*)(GET_SRAM_BB_ADDR(addr, offset)))
+#define GET_SRAM_BB_VAL(addr, offset)                           (*(__O uint32_t*)(GET_SRAM_BB_ADDR(addr, offset)))
 
 /* Exported macro ------------------------------------------------------------*/
 #define FLAG_SET(registry, flag)                                SET_SRAM_BB_VAL((uint32_t)&registry, flag, 1)
@@ -166,13 +166,13 @@
 
 #define PIN_H(port, pinSource)                                  SET_PERIPH_BB_VAL((uint32_t)port, GPIO_BSRR_Offset, pinSource, 1)
 #define PIN_L(port, pinSource)                                  SET_PERIPH_BB_VAL((uint32_t)port, GPIO_BSRR_Offset, (pinSource + 16U), 1)
-// #define PIN_LEVEL(port, pinSource)                              (GET_PERIPH_BB_VAL((uint32_t)port, GPIO_IDR_Offset, pinSource))
-#define PIN_LEVEL(port, pinSource)                               (Get_BitBandVal(GET_PERIPH_BB_ADDR((uint32_t)port, GPIO_IDR_Offset, pinSource)))
+#define PIN_LEVEL(port, pinSource)                              (GET_PERIPH_BB_VAL((uint32_t)port, GPIO_IDR_Offset, pinSource))
+// #define PIN_LEVEL(port, pinSource)                               (Get_BitBandVal(GET_PERIPH_BB_ADDR((uint32_t)port, GPIO_IDR_Offset, pinSource)))
 
 #define PREG_SET(registry, key)                                 SET_PERIPH_BB_VAL((uint32_t)&registry, 0, key, 1)
 #define PREG_CLR(registry, key)                                 SET_PERIPH_BB_VAL((uint32_t)&registry, 0, key, 0)
-// #define PREG_CHECK(registry, key)                               (GET_PERIPH_BB_VAL((uint32_t)&registry, 0, key))
-#define PREG_CHECK(registry, key)                               (Get_BitBandVal(GET_PERIPH_BB_ADDR((uint32_t)&registry, 0, key)))
+#define PREG_CHECK(registry, key)                               (GET_PERIPH_BB_VAL((uint32_t)&registry, 0, key))
+// #define PREG_CHECK(registry, key)                               (Get_BitBandVal(GET_PERIPH_BB_ADDR((uint32_t)&registry, 0, key)))
 
 #define BIT_2_0(per)        (per * 2U)
 #define BIT_2_1(per)        (per * 2U + 1U)
