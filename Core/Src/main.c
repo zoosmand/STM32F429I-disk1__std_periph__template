@@ -228,16 +228,6 @@ void SystemInit(void) {
 
   NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
 
-    /* SysTick */
-  SET_BIT(SysTick->CTRL, (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk));
-  SysTick->LOAD = 1800U - 1U;
-  SysTick->VAL = 0;
-  SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
-
-  /* SysTick interrupt configuration */
-  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
-  NVIC_EnableIRQ(SysTick_IRQn);
-
   /* SysCfg */
   PREG_SET(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN_Pos);
   while (!(PREG_CHECK(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN_Pos)));
@@ -319,6 +309,18 @@ void SystemInit(void) {
   RccClocks.PCLK1_Freq_Tim = 90000000U;
   RccClocks.PCLK2_Freq = 90000000U;
   RccClocks.PCLK2_Freq_Tim = 180000000U;
+
+
+  /* SysTick */
+  SET_BIT(SysTick->CTRL, (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk));
+  /* let SystemQuant to be 1us */ 
+  SysTick->LOAD = SystemCoreClock / 1000000U - 1U;
+  SysTick->VAL = 0;
+  SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
+
+  /* SysTick interrupt configuration */
+  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
+  NVIC_EnableIRQ(SysTick_IRQn);
 
 
   /* Set timer prescaler */

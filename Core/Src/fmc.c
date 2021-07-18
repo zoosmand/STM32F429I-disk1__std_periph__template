@@ -349,37 +349,37 @@ static void SDRAM_Init();
   * @return None
   */
 static void SDRAM_Init() {
-    /* SDRAM controller registers */
-    FMC_Bank5_6->SDCR[SDRAM_BANK1] = (__IO uint32_t)(
-        FMC_SDCR_CLK_PER_2
-      | FMC_SDCR_RBURST_DIS
-      | FMC_SDCR_RPIPE_0
-    );    
-    FMC_Bank5_6->SDCR[SDRAM_BANK2] = (__IO uint32_t)(
-        FMC_SDCR_COL_BITS_8
-      | FMC_SDCR_ROW_BITS_12
-      | FMC_SDCR_BUS_16
-      | FMC_SDCR_BANKS_NUM_4
-      | FMC_SDCR_CAS_3
-      | FMC_SDCR_WP_DIS
-    );
+  /* SDRAM controller registers */
+  FMC_Bank5_6->SDCR[SDRAM_BANK1] = (__IO uint32_t)(
+      FMC_SDCR_CLK_PER_2
+    | FMC_SDCR_RBURST_DIS
+    | FMC_SDCR_RPIPE_0
+  );    
+  FMC_Bank5_6->SDCR[SDRAM_BANK2] = (__IO uint32_t)(
+      FMC_SDCR_COL_BITS_8
+    | FMC_SDCR_ROW_BITS_12
+    | FMC_SDCR_BUS_16
+    | FMC_SDCR_BANKS_NUM_4
+    | FMC_SDCR_CAS_3
+    | FMC_SDCR_WP_DIS
+  );
 
-    /* SDRAM Timing registers */
-    // FMC_Bank5_6->SDTR[SDRAM_BANK1] &= ~(
-    //     (0xf << FMC_SDTR1_TRC_Pos)
-    //   | (0xf << FMC_SDTR1_TRP_Pos)
-    // );
-    FMC_Bank5_6->SDTR[SDRAM_BANK1] = (__IO uint32_t)(
-        (6 << FMC_SDTR1_TRC_Pos)
-      | (1 << FMC_SDTR1_TRP_Pos)
-    );
-    FMC_Bank5_6->SDTR[SDRAM_BANK2] = (__IO uint32_t)(
-        (1 << FMC_SDTR2_TMRD_Pos)
-      | (6 << FMC_SDTR2_TXSR_Pos)
-      | (3 << FMC_SDTR2_TRAS_Pos)
-      | (1 << FMC_SDTR2_TWR_Pos)
-      | (1 << FMC_SDTR2_TRCD_Pos)
-    );
+  /* SDRAM Timing registers */
+  // FMC_Bank5_6->SDTR[SDRAM_BANK1] &= ~(
+  //     (0xf << FMC_SDTR1_TRC_Pos)
+  //   | (0xf << FMC_SDTR1_TRP_Pos)
+  // );
+  FMC_Bank5_6->SDTR[SDRAM_BANK1] = (__IO uint32_t)(
+      (6 << FMC_SDTR1_TRC_Pos)
+    | (1 << FMC_SDTR1_TRP_Pos)
+  );
+  FMC_Bank5_6->SDTR[SDRAM_BANK2] = (__IO uint32_t)(
+      (1 << FMC_SDTR2_TMRD_Pos)
+    | (6 << FMC_SDTR2_TXSR_Pos)
+    | (3 << FMC_SDTR2_TRAS_Pos)
+    | (1 << FMC_SDTR2_TWR_Pos)
+    | (1 << FMC_SDTR2_TRCD_Pos)
+  );
 
   SDRAM_CommandTypeDef SdramCommand       = {0};
 
