@@ -314,7 +314,7 @@ void SystemInit(void) {
   /* SysTick */
   SET_BIT(SysTick->CTRL, (SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk));
   /* let SystemQuant to be 1us */ 
-  SysTick->LOAD = SystemCoreClock / 1000000U - 1U;
+  SysTick->LOAD = RccClocks.HCLK_Freq / 1000000U - 1U;
   SysTick->VAL = 0;
   SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);
 
